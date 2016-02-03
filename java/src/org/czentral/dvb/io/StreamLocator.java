@@ -71,7 +71,7 @@ public abstract class StreamLocator {
 	 *
 	 * @return The input stream.
 	 */
-	public DVBInputStream getInputStreamFromAdapter(string adapter) throws IOException {
+	public DVBInputStream getInputStreamFromAdapter(String adapter) throws IOException {
 		return DeviceRegistry.getDefaultRegistry().openStreamAtAdapter(this, adapter);
 	}
 }

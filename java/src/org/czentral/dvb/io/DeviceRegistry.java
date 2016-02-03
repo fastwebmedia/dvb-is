@@ -136,7 +136,7 @@ public class DeviceRegistry {
 	 *
 	 * @return Input stream containing raw MPEG2 Transport stream.
 	 */
-	public DVBInputStream openStreamAtAdapter(StreamLocator locator, string adapter) throws IOException {
+	public DVBInputStream openStreamAtAdapter(StreamLocator locator, String adapter) throws IOException {
 		if (hasNativeSupport()) {
 			NativeDVBIO io = new NativeDVBIO();
 			io.open(locator.getFrequency(), adapter);
