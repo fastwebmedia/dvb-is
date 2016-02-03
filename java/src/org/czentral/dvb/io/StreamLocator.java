@@ -49,7 +49,7 @@ public abstract class StreamLocator {
 	}
 	
 	/**
-	 * Tunes the first available device to the trasnsponder and starts
+	 * Tunes the first available device to the transponder and starts
 	 * receiveing the stream.
 	 * 
 	 * Calling this metod is identical to <code>DeviceRegistry.
@@ -59,5 +59,19 @@ public abstract class StreamLocator {
 	 */
 	public DVBInputStream getInputStream() throws IOException {
 		return DeviceRegistry.getDefaultRegistry().openStreamAt(this);
+	}
+	
+	
+	/**
+	 * Tunes the specified device to the transponder and starts
+	 * receiveing the stream.
+	 * 
+	 * Calling this method is identical to <code>DeviceRegistry.
+	 * openStreamAt(StreamLocator)</code>
+	 *
+	 * @return The input stream.
+	 */
+	public DVBInputStream getInputStreamFromAdapter(string adapter) throws IOException {
+		return DeviceRegistry.getDefaultRegistry().openStreamAtAdapter(this, adapter);
 	}
 }
