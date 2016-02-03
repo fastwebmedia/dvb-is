@@ -128,4 +128,21 @@ public class DeviceRegistry {
 		
 		throw new IOException("No suitable devices.");
 	}
+	
+	/**
+	 * Finds the passed device applicable device, tunes it to the transponder specified
+	 * by the <code>locator</code> parameter and returns a DVBInputStream to
+	 * access data.
+	 *
+	 * @return Input stream containing raw MPEG2 Transport stream.
+	 */
+	public DVBInputStream openStreamAtAdapter(StreamLocator locator, string adapter) throws IOException {
+		if (hasNativeSupport()) {
+			NativeDVBIO io = new NativeDVBIO();
+			io.open(locator.getFrequency(), adapter);
+			return io;
+		}
+		
+		throw new IOException("No suitable devices.");
+	}
 }
